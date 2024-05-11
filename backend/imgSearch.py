@@ -1,5 +1,6 @@
 from serpapi import GoogleSearch
 from dotenv import find_dotenv, load_dotenv
+import os
 
 def getNameFromURL(url):
     params = {
