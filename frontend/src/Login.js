@@ -3,7 +3,6 @@ import { auth } from "./FirebaseConfig";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { useHistory } from "react-router-dom";
-// import { fetchData } from "./Mexplorer"
 
 
 const Login = () => {
@@ -13,9 +12,6 @@ const Login = () => {
         if (user) {
           return history.push("/");
         } 
-        // else {
-        //   return history.push("/Login");
-        // }
       });
 }, [])
 
@@ -39,14 +35,7 @@ const Login = () => {
         console.log(error);
     });
 };
-//   const checklogin = async () => {
-//     const response = auth;
-    
-//     if (response) {
-//       return history.push("/");
-//     }
-// }
-//   useEffect(checklogin(), []);
+
 return (
   <div className="flex min-h-screen justify-center items-center">
     <div className="text-center">

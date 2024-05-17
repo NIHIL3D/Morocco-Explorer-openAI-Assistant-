@@ -17,7 +17,6 @@ const Mexplorer = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             fetchData();
-        //   return history.push("/");
         } else {
           return history.push("/Login");
         }
@@ -74,19 +73,6 @@ const Mexplorer = () => {
 
 
   const saveData = async () => {
-    // const db = getDatabase(app);
-    // const newDocRef = push(ref(db, localStorage.getItem('email').replace("@gmail.com", "")));
-    // set(newDocRef,{
-    //     usermsg: muser,
-    //     MEmsg: me,
-    // }).then(() => {
-    //     console.log('Document successfully written!');
-    //     console.log(muser, me);
-    //     setMuser('');
-    //     setMe('');
-    // }).catch((error) => {
-    //     console.error('Error writing document: ', error);
-    // })
   }
 
   const handleSubmit = async (e) => {
@@ -168,7 +154,6 @@ const Mexplorer = () => {
         setImgUploaded(data.secure_url);
         setSearchType('image');
         console.log(imgUploaded);
-        // setInput(url);
       } else {
         console.error('Error uploading file:', response.statusText);
       }
@@ -177,58 +162,7 @@ const Mexplorer = () => {
     }
   };
 
-  // return (
-  //   <div>
-  //     <h1>Moroccan Explorer</h1>
-      
-  //     <form onSubmit={handleSubmit}>
-  //       <div>
-  //         {/* <input
-  //           type="radio"
-  //           id="prompt"
-  //           name="searchType"
-  //           value="prompt"
-  //           checked={searchType === 'prompt'}
-  //           onChange={() => setSearchType('prompt')}
-  //         /> */}
-  //         {/* <label htmlFor="prompt">Search by Prompt</label> */}
-  //       </div>
-  //       <div>
-  //         {/* <input
-  //           type="radio"
-  //           id="image"
-  //           name="searchType"
-  //           value="image"
-  //           checked={searchType === 'image'}
-  //           onChange={() => setSearchType('image')}
-  //         />
-  //         <label htmlFor="image">Search by Image URL</label> */}
-  //       </div>
-  //       {/* <label htmlFor="input">Enter {searchType === 'prompt' ? 'prompt' : 'image URL'}:</label> */}
-  //       <input
-  //         type="text"
-  //         id="input"
-  //         value={input}
-  //         onChange={(e) => setInput(e.target.value)}
-  //       />
-  //       <input type="file" 
-  //       accept="image/*" 
-  //       onChange={(e) => setFile(e.target.files[0])}
-  //       ref = {ref}/>
-  //       {/* <button onClick={uploadImage}>upload</button> */}
-  //       <button type="button" onClick={uploadImage}>upload</button>
-  //       <img src={url} />
-  //       <button type="submit" >Search</button>
-  //     </form>
-  //     {result && (
-  //       <div>
-  //         <h2>Result:</h2>
-  //         <p>{result}</p>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
-
+  
   return (
     <div className="guidini">
       <div className="px-[10%] p-4 border-gray-200 fixed top-0 left-0 right-0 bg-gradient-to-r from-gray-900 to-gray-700 z-10 flex flex-row items-center justify-between">
@@ -239,12 +173,10 @@ const Mexplorer = () => {
       </div>
       </div>
       
-      {/* <div className="flex h-screen "> */}
         <div className="flex flex-col flex-1 relative">
           <div className="overflow-y-auto space-y-4 flex-1 mb-20">
             <div className="messages mt-28">
             
-              {/* {lastMsg} */}
               {messagesF.map((message, index) => (
                 <div key={index}>
                   <div className="text-right px-[10%] flex flex-col items-end">
@@ -333,9 +265,7 @@ const Mexplorer = () => {
                       onChange={(e) => setFile(e.target.files[0])}
                       ref = {ref}
                       className='hidden'/>
-                      {/* <button onClick={uploadImage}>upload</button> */}
                       
-                      {/* <img src={url} /> */}
                       <div className='flex items-center absolute bottom-1.5 right-2'>
                     {file && !url && <button type="button" className='text-amber-700 font-bold' onClick={uploadImage}>
                         <svg className='stroke-white/70 hover:stroke-white/100 w-6 h-6 stroke-2' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
@@ -347,10 +277,6 @@ const Mexplorer = () => {
                         <svg className='stroke-white/70 hover:stroke-white/100 w-6 h-6 stroke-2' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                         </svg>
-
-                      {/* <svg className='stroke-white/20 hover:stroke-white/30 w-6 h-6 stroke-2' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
-                      </svg> */}
 
                       </label>
                       
@@ -385,7 +311,6 @@ const Mexplorer = () => {
           </div>
         </div>
       </div>
-    // </div>
   );
 };
 

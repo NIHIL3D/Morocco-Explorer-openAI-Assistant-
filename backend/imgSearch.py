@@ -13,7 +13,5 @@ def getNameFromURL(url):
     results = search.get_dict()
     visual_matches = results["visual_matches"]
 
-    # print(visual_matches[0]["title"])
-    # print(results["knowledge_graph"][0]["title"])
     
     return results["knowledge_graph"][0]["title"]
